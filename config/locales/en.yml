@@ -35,7 +35,7 @@ en:
     sign_in: "Sign in"
     profile: "Profile"
     total_ratings: "Total ratings"
-    your_ratings: "Your ratings within 25%% of the community average"
+    your_ratings: "Your ratings within 25% of the community average"
     no_close_ratings: "Your ratings differ significantly from the expert community"
     image: "Image"
     image_name: "Name"
