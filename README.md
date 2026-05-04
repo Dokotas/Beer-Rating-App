@@ -42,7 +42,7 @@
 Требуется: Ruby 3.3.6 (через rbenv), PostgreSQL 16, Node.js 20+, Yarn.
 
 ```bash
-git clone https://github.com/ТВОЙ_ЛОГИН/beer_rating_app.git
+git clone https://github.com/Dokotas/Beer-Rating-App.git
 cd beer_rating_app
 
 # установка гемов и npm-пакетов
