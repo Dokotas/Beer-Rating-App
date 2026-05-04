@@ -5,9 +5,9 @@ Theme.delete_all
 User.delete_all
 
 puts "Creating themes..."
-lager = Theme.create!(name: "Лагеры")
-stout = Theme.create!(name: "Стауты")
-wheat = Theme.create!(name: "Пшеничное")
+lager = Theme.create!(key: "lager", name: "Лагеры")
+stout = Theme.create!(key: "stout", name: "Стауты")
+wheat = Theme.create!(key: "wheat", name: "Пшеничное")
 
 puts "Creating beers..."
 beers = [

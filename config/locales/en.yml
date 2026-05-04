@@ -13,6 +13,10 @@ en:
   themes:
     select_prompt: "Choose a category"
     select: "Select"
+    names:
+      lager: "Lagers"
+      stout: "Stouts"
+      wheat: "Wheat beers"
   work:
     title: "Rate the beer"
     rate_prompt: "Your rating (1–10)"
@@ -42,7 +46,7 @@ en:
     signed_out: "Signed out"
   pages:
     about_title: "About"
-    about_text: "Coursework on Ruby on Rails — expert rating of beer brands."
+    about_text: "Coursework on Ruby on Rails - expert rating of beer brands."
     help_title: "Help"
     help_text: "Sign up, pick a beer category and rate from 1 to 10."
   footer: "© 2026 Beer Rating. Ruby on Rails coursework."

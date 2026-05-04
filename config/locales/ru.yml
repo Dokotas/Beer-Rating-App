@@ -13,6 +13,10 @@ ru:
   themes:
     select_prompt: "Выберите категорию"
     select: "Выбрать"
+    names:
+      lager: "Лагеры"
+      stout: "Стауты"
+      wheat: "Пшеничное"
   work:
     title: "Оцените пиво"
     rate_prompt: "Ваша оценка (1–10)"
@@ -42,7 +46,7 @@ ru:
     signed_out: "Вы вышли"
   pages:
     about_title: "О проекте"
-    about_text: "Учебный курсовой проект на Ruby on Rails — экспертная оценка марок пива."
+    about_text: "Учебный курсовой проект на Ruby on Rails - экспертная оценка марок пива."
     help_title: "Справка"
     help_text: "Зарегистрируйтесь, выберите категорию пива и поставьте оценку от 1 до 10."
   footer: "© 2026 Beer Rating. Курсовой проект на Ruby on Rails."

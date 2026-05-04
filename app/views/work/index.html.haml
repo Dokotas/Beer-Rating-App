@@ -3,9 +3,9 @@
 = form_with url: work_path, method: :get, local: true, class: "mb-4" do |f|
   .input-group
     = f.select :theme_id,
-               Theme.all.map { |t| [t.name, t.id] },
-               { include_blank: t("themes.select_prompt"), selected: @selected_theme_id },
-               { class: "form-select" }
+           Theme.all.map { |t| [t.localized_name, t.id] },
+           { include_blank: t("themes.select_prompt"), selected: @selected_theme_id },
+           { class: "form-select" }
     = f.submit t("themes.select"), class: "btn btn-primary"
 
 - if @current_image
