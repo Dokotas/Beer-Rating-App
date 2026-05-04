@@ -1,0 +1,51 @@
+%h2= t("work.title")
+
+= form_with url: work_path, method: :get, local: true, class: "mb-4" do |f|
+  .input-group
+    = f.select :theme_id,
+               Theme.all.map { |t| [t.name, t.id] },
+               { include_blank: t("themes.select_prompt"), selected: @selected_theme_id },
+               { class: "form-select" }
+    = f.submit t("themes.select"), class: "btn btn-primary"
+
+- if @current_image
+  #beer_app{data: { theme_id: @selected_theme_id,
+                    image_id: @current_image.id,
+                    file_url: image_path(@current_image.file),
+                    index: 0,
+                    total: @images.size,
+                    user_value: @user_value || "" }}
+    .row.justify-content-center
+      .col-md-8
+        .card.shadow-sm
+          .card-body.text-center
+            %h3#beer_name.mb-3= @current_image.name
+            = image_tag @current_image.file, id: "beer_img", class: "img-fluid mb-3", style: "max-height:320px;object-fit:contain", alt: @current_image.name
+            %p
+              %strong= "#{t('work.average')}: "
+              %span#beer_avg= @current_image.ave_value
+            %p
+              %strong= "#{t('work.your_value')}: "
+              %span#user_value= @user_value || "—"
+            .my-3
+              %p.fw-bold= t("work.rate_prompt")
+              .d-flex.flex-wrap.justify-content-center.gap-2
+                - (1..10).each do |n|
+                  %button.btn.btn-outline-primary.btn-rate{type: "button", data: { value: n }}= n
+            .d-flex.justify-content-between.mt-4
+              %button.btn.btn-secondary#prev_btn= t("work.prev")
+              %span.text-muted
+                #beer_position 1
+                = "/ #{@images.size}"
+              %button.btn.btn-secondary#next_btn= t("work.next")
+
+  :javascript
+    window.appPaths = {
+      next: "#{work_next_image_path}",
+      prev: "#{work_prev_image_path}",
+      save: "#{work_save_value_path}",
+      csrf: "#{form_authenticity_token}"
+    };
+
+- else
+  .alert.alert-info= t("work.no_image")

@@ -1,0 +1,26 @@
+.row
+  .col-md-4
+    %h3= @user.name
+    %p= @user.email
+    %p
+      %strong= "#{t('users.total_ratings')}: "
+      = @total
+  .col-md-8
+    %h4= t("users.your_ratings")
+    - if @close_values.any?
+      %table.table.table-striped
+        %thead
+          %tr
+            %th= t("users.image")
+            %th= t("users.image_name")
+            %th= t("users.your_value")
+            %th= t("users.avg_value")
+        %tbody
+          - @close_values.each do |v|
+            %tr
+              %td= image_tag v.image.file, style: "width:80px"
+              %td= v.image.name
+              %td= v.value
+              %td= v.image.ave_value
+    - else
+      .alert.alert-warning= t("users.no_close_ratings")

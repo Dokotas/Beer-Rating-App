@@ -1,0 +1,25 @@
+%nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
+  .container
+    = link_to t("app_name"), root_path, class: "navbar-brand"
+    %button.navbar-toggler{type: "button", "data-bs-toggle": "collapse", "data-bs-target": "#mainNav"}
+      %span.navbar-toggler-icon
+    #mainNav.collapse.navbar-collapse
+      %ul.navbar-nav.me-auto
+        %li.nav-item= link_to t("nav.home"), root_path, class: "nav-link"
+        %li.nav-item= link_to t("nav.work"), work_path, class: "nav-link"
+        %li.nav-item= link_to t("nav.about"), about_path, class: "nav-link"
+        %li.nav-item= link_to t("nav.help"),  help_path,  class: "nav-link"
+      %ul.navbar-nav
+        - if signed_in?
+          %li.nav-item= link_to t("nav.profile"), user_path(current_user), class: "nav-link"
+          %li.nav-item
+            = button_to t("nav.sign_out"), signout_path, method: :delete, class: "btn btn-link nav-link", form: {style: "display:inline"}
+        - else
+          %li.nav-item= link_to t("nav.sign_in"), signin_path, class: "nav-link"
+          %li.nav-item= link_to t("nav.sign_up"), signup_path, class: "nav-link"
+        %li.nav-item.ms-3
+          = link_to url_for(locale: :ru), class: "nav-link p-1" do
+            = image_tag "ru.svg", style: "width:22px;height:16px;vertical-align:middle", alt: "RU"
+        %li.nav-item
+          = link_to url_for(locale: :en), class: "nav-link p-1" do
+            = image_tag "en.svg", style: "width:22px;height:16px;vertical-align:middle", alt: "EN"

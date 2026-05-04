@@ -1,0 +1,22 @@
+.row.justify-content-center
+  .col-md-5
+    %h2= t("users.sign_up")
+    = form_with model: @user, url: signup_path, local: true do |f|
+      .mb-3
+        = f.label :name, t("users.name"), class: "form-label"
+        = f.text_field :name, class: "form-control"
+      .mb-3
+        = f.label :email, t("users.email"), class: "form-label"
+        = f.email_field :email, class: "form-control"
+      .mb-3
+        = f.label :password, t("users.password"), class: "form-label"
+        = f.password_field :password, class: "form-control"
+      .mb-3
+        = f.label :password_confirmation, t("users.password_confirmation"), class: "form-label"
+        = f.password_field :password_confirmation, class: "form-control"
+      = f.submit t("users.sign_up"), class: "btn btn-success"
+    - if @user.errors.any?
+      .alert.alert-danger.mt-3
+        %ul
+          - @user.errors.full_messages.each do |m|
+            %li= m
